@@ -35,9 +35,9 @@ public class TodoListController {
 
 	@PostMapping("/todos")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void createTodoItem(@RequestBody TodoItem todoItem) {
-		// Code à compléter
-		// ...
+	public String createTodoItem(@RequestBody TodoItem todoItem) {
+		todoItemRepository.save(todoItem);
+		return "redirect:todos";
 	}
 
 	@GetMapping("/todos")
